@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cost Management Assistant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>AWS Cost Assistant</h2>
+            </div>
+            
+            <div class="new-chat-btn">
+                <button id="new-chat">
+                    <i class="fas fa-plus"></i>
+                    New Conversation
+                </button>
+            </div>
+
+            <div class="sidebar-history">
+                <h3>Recent Conversations</h3>
+                <div id="chat-history-list">
+                    <!-- Chat history items will be added here -->
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-item">
+                    <i class="fas fa-robot"></i>
+                    <span>Powered by Mistral AI</span>
+                </div>
+                <div class="sidebar-footer-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Private</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="chat-container">
+                <div id="chat-messages" class="messages-container">
+                    <!-- Welcome Message -->
+                    <div class="message assistant">
+                        <div class="message-name">Assistant</div>
+                        <div class="message-bubble">
+                            <p>👋 Hello! I'm your AWS Cost Management Assistant. I can help you with:</p>
+                            <ul>
+                                <li>Analyzing your AWS costs</li>
+                                <li>Getting cost forecasts</li>
+                                <li>Breaking down costs by service</li>
+                                <li>Identifying cost optimization opportunities</li>
+                            </ul>
+                            <p>Just ask me anything about your AWS costs!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <form id="chat-form">
+                        <div class="input-box">
+                            <textarea 
+                                id="user-input" 
+                                placeholder="Ask me anything about your AWS costs..." 
+                                rows="1"
+                                autofocus
+                            ></textarea>
+                            <button type="submit" title="Send message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="disclaimer">
+                            <i class="fas fa-info-circle"></i>
+                            AWS Cost Assistant may produce inaccurate information. Always verify with AWS Console.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="loading-indicator" class="loading-indicator">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Mistral AI API configuration
+mistral:
+  # Your Mistral AI API key
+  api_key: "your_mistral_api_key_here"
+  # Model to use for generation
+  model: "mistral-medium"
+  # API endpoint for Mistral AI
+  api_url: "https://api.mistral.ai/v1/chat/completions"
+
+# AWS configuration
+aws:
+  # Your AWS access key ID
+  access_key: "YOUR_AWS_ACCESS_KEY_ID"
+  # Your AWS secret access key
+  secret_key: "YOUR_AWS_SECRET_ACCESS_KEY"
+  # AWS region to use for services
+  region: "us-east-1"
+
+
