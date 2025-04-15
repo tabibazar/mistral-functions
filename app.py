@@ -177,10 +177,13 @@ def get_aws_cost_forecast(days=30, granularity="MONTHLY"):
             Granularity=granularity
         )
 
+        # Get the currency unit from the Total section
+        currency = response.get('Total', {}).get('Unit', 'USD')
+
         # Process and format the response
         results = {
             'forecast_total': float(response.get('Total', {}).get('Amount', 0)),
-            'currency': response.get('Total', {}).get('Unit', 'USD'),
+            'currency': currency,
             'start_date': start_date,
             'end_date': end_date,
             'granularity': granularity,
@@ -193,7 +196,7 @@ def get_aws_cost_forecast(days=30, granularity="MONTHLY"):
                     'start': period['TimePeriod']['Start'],
                     'end': period['TimePeriod']['End'],
                     'amount': round(float(period['MeanValue']), 2),
-                    'currency': period['Unit']
+                    'currency': currency  # Use the same currency for all periods
                 })
 
         return results
